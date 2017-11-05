@@ -10,7 +10,7 @@ env:
   matrix:
     - BUILD=1
 
-install:
+script:
   - ./gradlew build
 
 deploy:
