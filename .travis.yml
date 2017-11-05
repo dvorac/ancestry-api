@@ -1,0 +1,28 @@
+language: java
+
+jdk: oraclejdk8
+
+env:
+  global:
+    - APP_GROUP=com.dvorac.ancestry
+    - APP_VERSION=0.0.1-SNAPSHOT
+    - APP_PACKAGE=.jar
+  matrix:
+    - BUILD=1
+
+install:
+  - ./gradlew build
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_ACCESS_KEY_SECRET
+  region: "us-east-1"
+  app: "ancestry-api"
+  env: "ancestry-prod"
+  bucket_name: "elasticbeanstalk-us-east-1-115183919983"
+  skip_cleanup: true
+  zip_file: ./build/libs/ancestry-api-0.0.1.jar
+  on:
+    branch: dev
+    condition: "$TRAVIS_PULL_REQUEST = false"
