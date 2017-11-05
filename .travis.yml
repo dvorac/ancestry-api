@@ -5,7 +5,7 @@ jdk: oraclejdk8
 env:
   global:
     - APP_GROUP=com.dvorac.ancestry
-    - APP_VERSION=0.0.1-SNAPSHOT
+    - APP_VERSION=0.0.1
     - APP_PACKAGE=.jar
   matrix:
     - BUILD=1
