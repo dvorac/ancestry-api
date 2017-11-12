@@ -6,7 +6,8 @@ env:
   global:
     - APP_GROUP=com.dvorac.ancestry
     - APP_VERSION=0.0.1
-    - APP_PACKAGE=.jar
+    - APP_ARCHIVE=ancestry
+    - UPLOAD="${APP_ARCHIVE}_${APP_VERSION}.jar"
   matrix:
     - BUILD=1
 
@@ -22,8 +23,8 @@ deploy:
   env: "ancestry-prod"
   bucket_name: "elasticbeanstalk-us-east-1-115183919983"
   skip_cleanup: true
-  zip_file: ./build/libs/ancestry-api-0.0.1.jar
-  only_create_app_version: true
+  zip_file: ./build/libs/${UPLOAD}
+  only_create_app_version: false
   on:
     branch: dev
     condition: "$TRAVIS_PULL_REQUEST = false"

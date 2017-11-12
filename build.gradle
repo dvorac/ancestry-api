@@ -18,6 +18,8 @@ apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
+archivesBaseName = System.getenv('APP_ARCHIVE') ?: 'ancestry-local'
+
 group = System.getenv('APP_GROUP') ?: 'com.dvorac.ancestry'
 
 version = System.getenv('APP_VERSION') ?: '0.0.1'
