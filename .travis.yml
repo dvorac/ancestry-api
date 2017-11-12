@@ -11,7 +11,7 @@ env:
     - BUILD=1
 
 script:
-  - ./gradlew bootRepackage
+  - ./gradlew build
 
 deploy:
   provider: elasticbeanstalk
