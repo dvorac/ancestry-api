@@ -7,7 +7,7 @@ env:
     - APP_GROUP=com.dvorac.ancestry
     - APP_VERSION=0.0.1
     - APP_ARCHIVE=ancestry
-    - UPLOAD="${APP_ARCHIVE}_${APP_VERSION}.jar"
+    - UPLOAD=$APP_ARCHIVE_$APP_VERSION.jar
   matrix:
     - BUILD=1
 
